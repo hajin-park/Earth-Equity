@@ -1,4 +1,5 @@
-import React from "react"
+import React from "react";
+import {LineChart, Line, XAxis, YAxis, } from "recharts";
 
 const Covid = () => {
     return (
