@@ -18,20 +18,37 @@ const MONTH_DAYS = {
     "December": 31,
 };
 
-const Shop = ({ title, intervals, constraint }) => {
-    const [startYear, setStartYear] = useState("2000");
-    const [endYear, setEndYear] = useState("01");
-    const [startMonth, setStartMonth] = useState("01");
-    const [endMonth, setEndMonth] = useState("01");
-    const [startDay, setStartDay] = useState("01");
-    const [endDay, setEndDay] = useState("01");
+const MONTHS = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+];
+
+const Shop = ({ title, intervals, constraint, setStart }) => {
+    const [startYear, setStartYear] = useState(null);
+    const [endYear, setEndYear] = useState(null);
+    const [startMonth, setStartMonth] = useState(null);
+    const [endMonth, setEndMonth] = useState(null);
+    const [startDay, setStartDay] = useState(null);
+    const [endDay, setEndDay] = useState(null);
     const [availableStartYears, setAvailableStartYears] = useState([]);
     const [availableStartMonths, setAvailableStartMonths] = useState([]);
     const [availableStartDays, setAvailableStartDays] = useState([]);
     const [availableEndYears, setAvailableEndYears] = useState([]);
     const [availableEndMonths, setAvailableEndMonths] = useState([]);
     const [availableEndDays, setAvailableEndDays] = useState([]);
+    const [amount, setAmount] = useState(0);
 
+    //Set default contraints on available years
     useEffect(() => {
         const startDateString = constraint[0];
         const endDateString = constraint[1];
@@ -40,7 +57,7 @@ const Shop = ({ title, intervals, constraint }) => {
         const startDate = new Date(startDateString);
         const endDate = new Date(endDateString);
 
-        // Extract the year from both Date objects
+        // Extract the year, month, and day from both Date objects
         const startYear = startDate.getFullYear();
         const endYear = endDate.getFullYear();
 
@@ -50,14 +67,35 @@ const Shop = ({ title, intervals, constraint }) => {
             years.push(year);
         }
 
+        // Generate an array of days of a month
+        const days = [];
+        for (let day = 0; day <= 31; day++) {
+            days.push(day);
+        }
+
         setAvailableStartYears(() => years);
         setAvailableEndYears(() => years);
+        setAvailableStartMonths(() => [...MONTHS]);
+        setAvailableEndMonths(() => [...MONTHS]);
+        setAvailableStartDays(() => days);
+        setAvailableEndDays(() => days);
     }, [constraint]);
 
-    useEffect(() => {}, [startYear]);
-    useEffect(() => {}, [endYear]);
-    useEffect(() => {}, [startMonth]);
-    useEffect(() => {}, [endMonth]);
+    useEffect(() => {
+        const days = [];
+        for (let day = 0; day <= MONTH_DAYS[startMonth]; day++) {
+            days.push(day);
+        }
+        setAvailableStartDays(() => days);
+    }, [startMonth]);
+
+    useEffect(() => {
+        const days = [];
+        for (let day = 0; day <= MONTH_DAYS[endMonth]; day++) {
+            days.push(day);
+        }
+        setAvailableEndDays(() => days);
+    }, [endMonth]);
 
     return (
         <div className="bg-white rounded-lg shadow-xl shadow-black/20">
@@ -83,14 +121,14 @@ const Shop = ({ title, intervals, constraint }) => {
                         {intervals.includes("Monthly") && (
                             <DropDown
                                 name="Month"
-                                options={[]}
+                                options={availableStartMonths}
                                 setDate={setStartMonth}
                             />
                         )}
                         {intervals.includes("Daily") && (
                             <DropDown
                                 name="Day"
-                                options={[]}
+                                options={availableStartDays}
                                 setDate={setStartDay}
                             />
                         )}
@@ -108,22 +146,34 @@ const Shop = ({ title, intervals, constraint }) => {
                         {intervals.includes("Monthly") && (
                             <DropDown
                                 name="Month"
-                                options={[]}
+                                options={availableEndMonths}
                                 setDate={setEndMonth}
                             />
                         )}
                         {intervals.includes("Daily") && (
                             <DropDown
                                 name="Day"
-                                options={[]}
+                                options={availableEndDays}
                                 setDate={setEndDay}
                             />
                         )}
                     </section>
 
-                    <InputBox />
+                    <InputBox setAmount={setAmount} />
 
-                    <OptionSelect />
+                    <OptionSelect
+                        setStart={setStart}
+                        inputData={{
+                            startYear: startYear,
+                            endYear: endYear,
+                            startMonth: startMonth,
+                            endMonth: endMonth,
+                            startDay: startDay,
+                            endDay: endDay,
+                            amount: amount,
+                        }}
+                        intervals={intervals}
+                    />
                 </div>
             </div>
         </div>

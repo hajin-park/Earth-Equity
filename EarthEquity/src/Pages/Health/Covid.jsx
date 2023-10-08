@@ -6,7 +6,7 @@ import { ref, child, get } from "firebase/database";
 import AboutSection from "../../Components/AboutSection/AboutSection.jsx";
 
 const Covid = () => {
-    const [start, setStart] = useState(false);
+    const [start, setStart] = useState(null);
     const [graphPoints, setGraphPoints] = useState([]);
     const [graphTitle, setGraphTitle] = useState("");
     const [graphDescriptions, setGraphDescriptions] = useState([]);
@@ -46,7 +46,6 @@ const Covid = () => {
                         data={graphPoints.map((point) => {
                             return { date: point[0], value: point[1] };
                         })}
-                        start={start}
                     />
                 ) : (
                     <div className="flex w-full lg:py-32 items-center">

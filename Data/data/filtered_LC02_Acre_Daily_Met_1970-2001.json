@@ -1,7 +1,7 @@
 {
     "title": "Average Temperature in Rio Branco",
-    "start": "01/01/1970",
-    "end": "05/31/2001",
+    "start": "1970-01-02",
+    "end": "2001-06-01",
     "intervals": ["Daily", "Weekly", "Monthly", "Yearly"],
     "descriptions": ["Average tempature in Rio Branco"],
     "links": [""],

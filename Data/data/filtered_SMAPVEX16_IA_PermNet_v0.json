@@ -1,7 +1,7 @@
 {
     "title": "Soil Moisture",
-    "start": "05/01/2016",
-    "end": "09/30/2016",
+    "start": "2016-05-02",
+    "end": "2016-10-01",
     "intervals": ["Daily", "Weekly", "Monthly", "Yearly"],
     "descriptions": ["Soil Moisture in Iowa Summer of 2016"],
     "links": [""],

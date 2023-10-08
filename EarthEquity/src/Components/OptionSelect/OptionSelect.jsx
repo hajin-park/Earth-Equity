@@ -10,14 +10,43 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
 
-export default function OptionSelect() {
+export default function OptionSelect({ setStart, inputData, intervals }) {
     const [action, setAction] = useState("");
+
+    const handleChange = (e) => {
+        console.log(inputData);
+        for (const [key, value] of Object.entries(inputData)) {
+            if (!value) {
+                if (key == "startDay" || key == "endDay") {
+                    if (intervals.includes("Daily")) {
+                        return false;
+                    }
+                } else if (key == "startMonth" || key == "endMonth") {
+                    if (intervals.includes("Monthly")) {
+                        return false;
+                    }
+                } else if (key == "startYear" || key == "endYear") {
+                    if (intervals.includes("Yearly")) {
+                        return false;
+                    }
+                }
+            }
+        }
+        setStart(e);
+    };
 
     return (
         <div className="p-12">
-            <RadioGroup value={action} onChange={setAction} className="mt-2">
+            <RadioGroup
+                value={action}
+                onChange={(e) => {
+                    setAction(e);
+                    handleChange(e);
+                }}
+                className="mt-2"
+            >
                 <RadioGroup.Label className="sr-only">
-                    Choose an action option
+                    Choose an action
                 </RadioGroup.Label>
                 <div className="grid grid-cols-2 gap-3">
                     {actionOptions.map((option) => (
