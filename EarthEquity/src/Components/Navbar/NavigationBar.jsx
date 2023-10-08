@@ -1,9 +1,6 @@
 import React, { useState } from "react"
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { NavLink } from "react-router-dom";
-import Covid from "../../Pages/Health/Covid";
-import Heat from "../../Pages/Climate/Heat";
-import Milk from "../../Pages/Agriculture/Milk";
 
 const navigation = [
     { name: "Home", to: "/"},
