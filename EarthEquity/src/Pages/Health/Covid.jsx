@@ -17,7 +17,7 @@ const Covid = () => {
             <div className="info"
                 style={{ display: "flex", flex: 2, flexDirection: "column" }}
             >
-                <a href="#" style={{ fontSize: "large", padding: "20px" }}>
+                <a href="#" style={{ fontSize: "30px", padding: "20px" }}>
                     Covid Infections
                 </a>
                 <div style={{ padding: "20px", flex: 2, width: '800px', height: '400px' }}>
@@ -38,7 +38,7 @@ const Covid = () => {
                 </div>
             </div>
             <div className="buy"
-                style={{ flex: 1 }}
+                style={{ flex: 1, padding: "20px" }}
             >
                 <Shop data = "COVID"/>
             </div>

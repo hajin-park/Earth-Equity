@@ -17,7 +17,7 @@ const Heat = () => {
             <div className="info"
                 style={{ display: "flex", flex: 2, flexDirection: "column" }}
             >
-                <a href="#" style={{ fontSize: "large", padding: "20px" }}>
+                <a href="#" style={{ fontSize: "30px", padding: "20px" }}>
                     Surface Temperature
                 </a>
                 <div style={{ padding: "20px", flex: 2, width: '800px', height: '400px' }}>
