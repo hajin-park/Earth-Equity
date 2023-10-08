@@ -2,18 +2,15 @@ import { Fragment, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Dialog, Popover, Transition } from "@headlessui/react";
 import {
-    ArrowPathIcon,
     Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
     SquaresPlusIcon,
     XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
+    BeakerIcon,
     ChevronDownIcon,
-    PhoneIcon,
-    PlayCircleIcon,
+    GlobeAmericasIcon,
+    SunIcon,
 } from "@heroicons/react/20/solid";
 
 const health = [
@@ -21,7 +18,7 @@ const health = [
         name: "COVID",
         description: "COVID Death Rates",
         to: "covid",
-        icon: ChartPieIcon,
+        icon: BeakerIcon,
     },
 ];
 
@@ -30,7 +27,7 @@ const climate = [
         name: "Temperature",
         description: "Mean Temperature in Rio Branco",
         to: "temperature",
-        icon: FingerPrintIcon,
+        icon: SunIcon,
     },
 ];
 
@@ -39,7 +36,7 @@ const agriculture = [
         name: "Soil",
         description: "Soil Moisture Levels in Iowa",
         to: "soil",
-        icon: SquaresPlusIcon,
+        icon: GlobeAmericasIcon,
     },
 ];
 
