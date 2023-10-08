@@ -14,6 +14,10 @@ const Covid = () => {
     const [graphIntervals, setGraphIntervals] = useState([]);
     const [timeConstraint, setTimeConstraint] = useState([]);
     const [chosenLength, setChosenLength] = useState([]);
+    const [investment, setInvestment] = useState(1000);
+    const [cash, setCash] = useState(1000);
+    const [startValue, setStartValue] = useState(0);
+    const [endValue, setEndValue] = useState(0);
 
     useEffect(() => {
         const dbRef = ref(database);
@@ -39,7 +43,7 @@ const Covid = () => {
     }, []);
 
     return (
-        <main className="lg:pt-16 p-12 flex flex-col lg:grid grid-rows-2 grid-cols-3">
+        <main className="lg:pt-16 p-12 flex flex-auto flex-col lg:grid grid-rows-2 grid-cols-3">
             <section className="col-span-2 row-start-1">
                 <h1 className="text-6xl font-bold">{graphTitle}</h1>
                 {start ? (
@@ -61,7 +65,7 @@ const Covid = () => {
                 desc="Deaths counts for influenza, pneumonia, and COVID-19 reported to NCHS by week ending date, by state and HHS region, and age group."
                 dataset="https://data.cdc.gov/NCHS/Provisional-Death-Counts-for-Influenza-Pneumonia-a/ynw2-4viq"
             />
-            <section className="col-start-3 row-span-2">
+            <section className="col-start-3 row-span-2 min-h-screen">
                 <Shop
                     title={graphTitle}
                     intervals={graphIntervals}
