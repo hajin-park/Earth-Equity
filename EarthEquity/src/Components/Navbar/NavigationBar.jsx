@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import { Dialog, Popover, Transition } from "@headlessui/react";
 import {
     Bars3Icon,
-    SquaresPlusIcon,
     XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
@@ -54,7 +53,7 @@ export default function NavigationBar() {
                         <span className="sr-only">Earth Equity</span>
                         <img
                             className="h-8 w-auto"
-                            src="/assets/EarthEquityLogo.svg"
+                            src="/src/assets/EarthEquityLogo.svg"
                             alt="Logo"
                         />
                     </NavLink>
