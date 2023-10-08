@@ -39,10 +39,10 @@ const Covid = () => {
     return (
         <main className="pt-28 p-16 flex flex-col lg:grid grid-rows-2 grid-cols-3">
             <section className="col-span-2 row-start-1">
-                <h1 className="text-6xl font-bold">{graphTitle}</h1>
+                <h1 className="text-6xl font-bold pb-16">{graphTitle}</h1>
                 <LineGraph
                     data={graphPoints.map((point) => {
-                        return { x: point[0], y: point[1] };
+                        return { date: point[0], value: point[1] };
                     })}
                 />
             </section>
