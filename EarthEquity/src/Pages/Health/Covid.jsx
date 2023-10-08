@@ -13,6 +13,7 @@ const Covid = () => {
     const [graphLinks, setGraphLinks] = useState([]);
     const [graphIntervals, setGraphIntervals] = useState([]);
     const [timeConstraint, setTimeConstraint] = useState([]);
+    const [chosenLength, setChosenLength] = useState([]);
 
     useEffect(() => {
         const dbRef = ref(database);
@@ -46,6 +47,7 @@ const Covid = () => {
                         data={graphPoints.map((point) => {
                             return { date: point[0], value: point[1] };
                         })}
+                        chosenLength={chosenLength}
                     />
                 ) : (
                     <div className="flex w-full lg:py-32 items-center">
@@ -65,6 +67,7 @@ const Covid = () => {
                     intervals={graphIntervals}
                     constraint={timeConstraint}
                     setStart={setStart}
+                    setChosenLength={setChosenLength}
                 />
             </section>
         </main>

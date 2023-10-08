@@ -10,7 +10,12 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
 
-export default function OptionSelect({ setStart, inputData, intervals }) {
+export default function OptionSelect({
+    setStart,
+    inputData,
+    intervals,
+    setChosenLength,
+}) {
     const [action, setAction] = useState("");
 
     const handleChange = (e) => {
@@ -32,6 +37,30 @@ export default function OptionSelect({ setStart, inputData, intervals }) {
                 }
             }
         }
+        console.log([
+            {
+                startYear: inputData.startYear,
+                startMonth: inputData.startMonth,
+                startDay: inputData.startDay,
+            },
+            {
+                endYear: inputData.endYear,
+                endMonth: inputData.endMonth,
+                endDay: inputData.endDay,
+            },
+        ]);
+        setChosenLength([
+            {
+                startYear: inputData.startYear,
+                startMonth: inputData.startMonth,
+                startDay: inputData.startDay,
+            },
+            {
+                endYear: inputData.endYear,
+                endMonth: inputData.endMonth,
+                endDay: inputData.endDay,
+            },
+        ]);
         setStart(e);
     };
 

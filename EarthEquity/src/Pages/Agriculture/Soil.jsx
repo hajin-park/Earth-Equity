@@ -6,13 +6,14 @@ import { ref, child, get } from "firebase/database";
 import AboutSection from "../../Components/AboutSection/AboutSection.jsx";
 
 const Soil = () => {
-    const [start, setStart] = useState(false);
+    const [start, setStart] = useState(null);
     const [graphPoints, setGraphPoints] = useState([]);
     const [graphTitle, setGraphTitle] = useState("");
     const [graphDescriptions, setGraphDescriptions] = useState([]);
     const [graphLinks, setGraphLinks] = useState([]);
     const [graphIntervals, setGraphIntervals] = useState([]);
     const [timeConstraint, setTimeConstraint] = useState([]);
+    const [chosenLength, setChosenLength] = useState([]);
 
     useEffect(() => {
         const dbRef = ref(database);
@@ -46,7 +47,7 @@ const Soil = () => {
                         data={graphPoints.map((point) => {
                             return { date: point[0], value: point[1] };
                         })}
-                        start={start}
+                        chosenLength={chosenLength}
                     />
                 ) : (
                     <div className="flex w-full lg:py-32 items-center">
@@ -57,8 +58,8 @@ const Soil = () => {
                 )}
             </section>
             <AboutSection
-                dataset="https://nsidc.org/data/sv16i_tnet/versions/1"
-                desc="These data consist of soil moisture and temperature measurements recorded by the temporary soil moisture network deployed to SMAPVEX16-Iowa for the summer season of 2016. The sites were spread out over an experiment domain of about 30km by 40 km located about 30 km north of Ames, Iowa, USA. The data file contains the soil moisture and temperature measurements for each station located at the site."
+                desc="Deaths counts for influenza, pneumonia, and COVID-19 reported to NCHS by week ending date, by state and HHS region, and age group."
+                dataset="https://data.cdc.gov/NCHS/Provisional-Death-Counts-for-Influenza-Pneumonia-a/ynw2-4viq"
             />
             <section className="col-start-3 row-span-2">
                 <Shop
@@ -66,6 +67,7 @@ const Soil = () => {
                     intervals={graphIntervals}
                     constraint={timeConstraint}
                     setStart={setStart}
+                    setChosenLength={setChosenLength}
                 />
             </section>
         </main>

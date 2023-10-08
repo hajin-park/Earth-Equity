@@ -6,13 +6,14 @@ import { ref, child, get } from "firebase/database";
 import AboutSection from "../../Components/AboutSection/AboutSection.jsx";
 
 const Temperature = () => {
-    const [start, setStart] = useState(false);
+    const [start, setStart] = useState(null);
     const [graphPoints, setGraphPoints] = useState([]);
     const [graphTitle, setGraphTitle] = useState("");
     const [graphDescriptions, setGraphDescriptions] = useState([]);
     const [graphLinks, setGraphLinks] = useState([]);
     const [graphIntervals, setGraphIntervals] = useState([]);
     const [timeConstraint, setTimeConstraint] = useState([]);
+    const [chosenLength, setChosenLength] = useState([]);
 
     useEffect(() => {
         const dbRef = ref(database);
@@ -46,7 +47,7 @@ const Temperature = () => {
                         data={graphPoints.map((point) => {
                             return { date: point[0], value: point[1] };
                         })}
-                        start={start}
+                        chosenLength={chosenLength}
                     />
                 ) : (
                     <div className="flex w-full lg:py-32 items-center">
@@ -57,8 +58,8 @@ const Temperature = () => {
                 )}
             </section>
             <AboutSection
-                dataset="https://daac.ornl.gov/cgi-bin/dsviewer.pl?ds_id=1091"
-                desc="This data set provides meteorological measurements collected from 3 different meteorological stations within a radius of 8 km in Rio Branco, Acre  Brazil, for  the periods of  June of 1970 to 1974, December of 1974 to 1980, and  May of 1980 thru May 31, 2001. Daily average values for rainfall, relative humidity, evapotranspiration, maximum and minimum temperature, pressure, wind direction and speed, solar radiation, and cloud cover are reported.  There is one comma-delimited data file with this data set."
+                desc="Deaths counts for influenza, pneumonia, and COVID-19 reported to NCHS by week ending date, by state and HHS region, and age group."
+                dataset="https://data.cdc.gov/NCHS/Provisional-Death-Counts-for-Influenza-Pneumonia-a/ynw2-4viq"
             />
             <section className="col-start-3 row-span-2">
                 <Shop
@@ -66,6 +67,7 @@ const Temperature = () => {
                     intervals={graphIntervals}
                     constraint={timeConstraint}
                     setStart={setStart}
+                    setChosenLength={setChosenLength}
                 />
             </section>
         </main>

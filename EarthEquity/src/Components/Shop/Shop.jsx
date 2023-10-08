@@ -33,7 +33,7 @@ const MONTHS = [
     "December",
 ];
 
-const Shop = ({ title, intervals, constraint, setStart }) => {
+const Shop = ({ title, intervals, constraint, setStart, setChosenLength }) => {
     const [startYear, setStartYear] = useState(null);
     const [endYear, setEndYear] = useState(null);
     const [startMonth, setStartMonth] = useState(null);
@@ -69,7 +69,7 @@ const Shop = ({ title, intervals, constraint, setStart }) => {
 
         // Generate an array of days of a month
         const days = [];
-        for (let day = 0; day <= 31; day++) {
+        for (let day = 1; day <= 31; day++) {
             days.push(day);
         }
 
@@ -83,7 +83,7 @@ const Shop = ({ title, intervals, constraint, setStart }) => {
 
     useEffect(() => {
         const days = [];
-        for (let day = 0; day <= MONTH_DAYS[startMonth]; day++) {
+        for (let day = 1; day <= MONTH_DAYS[startMonth]; day++) {
             days.push(day);
         }
         setAvailableStartDays(() => days);
@@ -91,7 +91,7 @@ const Shop = ({ title, intervals, constraint, setStart }) => {
 
     useEffect(() => {
         const days = [];
-        for (let day = 0; day <= MONTH_DAYS[endMonth]; day++) {
+        for (let day = 1; day <= MONTH_DAYS[endMonth]; day++) {
             days.push(day);
         }
         setAvailableEndDays(() => days);
@@ -173,6 +173,7 @@ const Shop = ({ title, intervals, constraint, setStart }) => {
                             amount: amount,
                         }}
                         intervals={intervals}
+                        setChosenLength={setChosenLength}
                     />
                 </div>
             </div>

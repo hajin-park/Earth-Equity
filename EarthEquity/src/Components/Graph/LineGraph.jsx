@@ -1,7 +1,22 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
-const LineChart = ({ data }) => {
+const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+];
+
+const LineChart = ({ data, chosenLength }) => {
     const ref = useRef();
 
     useEffect(() => {
@@ -12,6 +27,25 @@ const LineChart = ({ data }) => {
 
         data.sort((a, b) => a.date - b.date); // Sort the data by date
 
+        // Convert chosenLength to Date objects for easier comparison
+        const startDate = new Date(
+            chosenLength[0].startYear,
+            monthNames.indexOf(chosenLength[0].startMonth),
+            chosenLength[0].startDay || 1 // If day is null, default to the first day of the month
+        );
+
+        const endDate = new Date(
+            chosenLength[1].endYear,
+            monthNames.indexOf(chosenLength[1].endMonth) + 1, // To include the end month in the filter, add 1 to the month index
+            chosenLength[1].endDay || 0 // If day is null, default to the last day of the previous month
+        );
+
+        // Filter the data array
+        const filteredData = data.filter((item) => {
+            const itemDate = new Date(item.date);
+            return itemDate >= startDate && itemDate <= endDate;
+        });
+
         const width = 1000;
         const height = 500;
         const marginTop = 20;
@@ -21,13 +55,13 @@ const LineChart = ({ data }) => {
 
         // Declare the x (horizontal position) scale.
         const x = d3.scaleUtc(
-            d3.extent(data, (d) => d.date),
+            d3.extent(filteredData, (d) => d.date),
             [marginLeft, width - marginRight]
         );
 
         // Declare the y (vertical position) scale.
         const y = d3.scaleLinear(
-            [0, d3.max(data, (d) => d.value)],
+            [0, d3.max(filteredData, (d) => d.value)],
             [height - marginBottom, marginTop]
         );
 
@@ -83,7 +117,7 @@ const LineChart = ({ data }) => {
             .attr("fill", "none")
             .attr("stroke", "steelblue")
             .attr("stroke-width", 1.5)
-            .attr("d", line(data));
+            .attr("d", line(filteredData));
 
         const totalLength = path.node().getTotalLength();
 
