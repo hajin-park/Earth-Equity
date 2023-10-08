@@ -4,8 +4,30 @@ export default function Example() {
   return (
     <div className="bg-white py-20">
         <div className="bg-gray-700 py-24 sm:py-32 rounded-2xl">
-            <div>
+        <div>
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div className="mx-auto max-w-2xl lg:text-center">
+                    <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        How do Stocks relate to Earth Equity?
+                    </p>
+                    <p className="mt-6 text-lg leading-8 text-gray-300">
+                        Stocks change with trends which can be either upward or downward. Like the name
+                        states, when a trend is upward, as time goes on, the value of the stock increases. 
+                        On the other hand, when a stock has a downward trend, the value of stock decreases
+                        as time goes on. This is something that is analogous with Earth Equity. When looking
+                        at datasets, as time changes, there are changes to the values in the datasets; they 
+                        either increase or decrease. When choosing an equity on Earth Equity, you will choose
+                        a "stock" that will either have an upward or downward trend. This is something that you
+                        must determine when you select your time frames and your amounts. Knowing whether
+                        your Equity will have an upward or downward trend is essential to "profitting" on
+                        Earth Equity.
+                    </p>
+                </div>
+                </div>
+            </div>
+            <div>
+                <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-20">
+                    <h2 className="text-base font-semibold leading-7 text-indigo-400 text-center">More information about Stocks</h2>
                     <div className="mx-auto max-w-2xl lg:text-center">
                     <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         What is the Stock Market?
@@ -15,9 +37,9 @@ export default function Example() {
                         Both “stock market” and “stock exchange” are often used interchangeably. Traders in the stock market buy or sell shares on one or more of the stock exchanges that are part of the overall stock market.
                         The leading U.S. stock exchanges include the New York Stock Exchange (NYSE) and the Nasdaq.
                     </p>
-                    </div>
-                    <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-                    <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+                </div>
+                <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+                <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
                     <div key="Learn more about the Stock Market" className="flex flex-col">
                         <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-white">
                         <BuildingStorefrontIcon className="h-5 w-5 flex-none text-indigo-400" aria-hidden="true" />
@@ -62,9 +84,9 @@ export default function Example() {
                     </div>
                 </dl>
                 </div>
+                </div>
             </div>
-        </div>
-        <div>
+            <div>
             <div className="grid grid-rows-2 justify-center mx-auto max-w-7xl px-6 lg:px-8 mt-20">
                 <div className="mx-auto max-w-2xl lg:text-center">
                 <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">
