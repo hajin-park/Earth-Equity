@@ -2,11 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Layout } from "./utils/layouts.jsx";
-import Covid from "./Pages/Health/Covid";
-import Heat from "./Pages/Climate/Heat.jsx";
-import Home from "./Pages/Home/Home";
-import Milk from "./Pages/Agriculture/Milk.jsx";
 import Error from "./Pages/Error/Error.jsx";
+import Home from "./Pages/Home/Home";
+import Covid from "./Pages/Health/Covid";
+import Temperature from "./Pages/Climate/Temperature.jsx";
+import Soil from "./Pages/Agriculture/Soil.jsx";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -24,12 +24,12 @@ const router = createBrowserRouter([
                 element: <Covid />,
             },
             {
-                path: "/heat",
-                element: <Heat />,
+                path: "/temperature",
+                element: <Temperature />,
             },
             {
-                path: "/milk",
-                element: <Milk />,
+                path: "/soil",
+                element: <Soil />,
             },
         ],
     },
