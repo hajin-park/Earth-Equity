@@ -1,10 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase } from "firebase/database";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
     apiKey: "AIzaSyCby6_HtXZq4hC7mXzR05rHE8k0KkZN_v8",
     authDomain: "earthequity.firebaseapp.com",
@@ -13,7 +9,8 @@ const firebaseConfig = {
     messagingSenderId: "586532408744",
     appId: "1:586532408744:web:c6f45ae850b94c602e219d",
     measurementId: "G-6RTJ8TJ1XV",
+    databaseURL: "https://earthequity-default-rtdb.firebaseio.com",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
+export const database = getDatabase(app);
