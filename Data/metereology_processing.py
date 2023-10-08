@@ -4,6 +4,12 @@ import json
 
 CSV_FILE = "LC02_Acre_Daily_Met_1970-2001.csv"
 JSON_FILE = "filtered_LC02_Acre_Daily_Met_1970-2001.json"
+
+DATE_INDEX = 1
+AIR_TEMP_MEAN = 5
+
+
+
 filtered_data = {
     "title": "Average Temperature in Rio Branco",
     "start": "01/01/1970",
@@ -22,4 +28,8 @@ with open(f"data/{CSV_FILE}", "r") as file:
         next(reader)
 
     for line in reader:
-        pass
+        filtered_data["data"].append([line[DATE_INDEX], line[AIR_TEMP_MEAN]])
+
+with open(f"data/{JSON_FILE}", "w") as file:
+    json_string = json.dumps(filtered_data, indent=None, separators=(",", ":"))
+    file.write(json_string)
