@@ -31,16 +31,18 @@ with open(f"Data/data/{CSV_FILE}", "r") as file:
     aggregate_soil_moisture = 0
     total_counts_day = 0
     for line in reader:
-        formatted_date = f"{line[MONTH_INDEX]:02d}/{line[DAY_INDEX]:02d}/{line[YEAR_INDEX]}"
+        formatted_date = f"{int(line[MONTH_INDEX]):02d}/{int(line[DAY_INDEX]):02d}/{int(line[YEAR_INDEX])}"
         # covid deaths in rows of the same date are combined
         if formatted_date == prev_date:
-            aggregate_soil_moisture += int(line[SOIL_MOISTURE]) if line[SOIL_MOISTURE] else 0
+            aggregate_soil_moisture += float(line[SOIL_MOISTURE]) if line[SOIL_MOISTURE] else 0
+            total_counts_day += 1
 
         # the next week starts, store the deaths of the previous week and repeat
         else:
-            filtered_data["data"].append([prev_date, aggregate_soil_moisture])
-            aggregate_soil_moisture = int(line[SOIL_MOISTURE]) if line[SOIL_MOISTURE] else 0
-            total_counts_day
+            avg_soil_moisture = round(aggregate_soil_moisture / total_counts_day, 3)
+            filtered_data["data"].append([prev_date, avg_soil_moisture])
+            aggregate_soil_moisture = float(line[SOIL_MOISTURE]) if line[SOIL_MOISTURE] else 0
+            total_counts_day = 1
 
         # track the previous date to check when a new week starts
         prev_date = formatted_date
