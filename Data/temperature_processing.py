@@ -9,7 +9,6 @@ DATE_INDEX = 1
 AIR_TEMP_MEAN = 5
 
 
-
 filtered_data = {
     "title": "Average Temperature in Rio Branco",
     "start": "01/01/1970",
@@ -20,7 +19,7 @@ filtered_data = {
     "data": [],
 }
 
-with open(f"data/{CSV_FILE}", "r") as file:
+with open(f"Data/data/{CSV_FILE}", "r") as file:
     reader = csv.reader(file, delimiter=",")
 
     # skip garbage rows
@@ -28,8 +27,10 @@ with open(f"data/{CSV_FILE}", "r") as file:
         next(reader)
 
     for line in reader:
-        filtered_data["data"].append([line[DATE_INDEX], line[AIR_TEMP_MEAN]])
+        if line[DATE_INDEX] and line[AIR_TEMP_MEAN]:
+            formatted_date = f"{line[DATE_INDEX][-4:-2]}/{line[DATE_INDEX][-2:]}/{line[DATE_INDEX][:4]}"
+            filtered_data["data"].append([formatted_date, line[AIR_TEMP_MEAN]])
 
-with open(f"data/{JSON_FILE}", "w") as file:
+with open(f"Data/data/{JSON_FILE}", "w") as file:
     json_string = json.dumps(filtered_data, indent=None, separators=(",", ":"))
     file.write(json_string)
