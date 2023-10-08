@@ -73,45 +73,24 @@ const months = [
     // More months...
 ];
 
-const tiers = [
-    {
-        name: "Purchase Data",
-        id: "purchase_data",
-        href: "#",
-        priceMonthly: "$32",
-        description: "A plan that scales with your rapidly growing business.",
-        features: [
-            "25 products",
-            "Up to 10,000 subscribers",
-            "Advanced analytics",
-            "24-hour support response time",
-            "Marketing automations",
-        ],
-    },
-];
-
 function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
 
-const Shop = ({ data }) => {
+const Shop = ({ title, interval, constraint }) => {
     const [selected, setSelected] = useState(people[3]);
 
     return (
-        <div className="bg-white sm:py-10">
+        <div className="bg-white">
             <div className="mx-auto max-w-7xl px-3 lg:px-5">
                 <div className="mx-auto max-w-4xl text-center">
-                    <h2 className="text-base font-semibold leading-7 text-indigo-600">
+                    <h2 className="text-lg font-semibold leading-7 text-indigo-600">
                         Your Equity Purchase
                     </h2>
-                    <p className="mt-2 text-4xl font-bold tracking-tight text-gray-900">
-                        {data}
+                    <p className="mt-4 mb-8 text-4xl font-bold tracking-tight text-gray-900">
+                        {title}
                     </p>
                 </div>
-                {/* <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-8 text-gray-600">
-          Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas in.
-          Explicabo id ut laborum.
-        </p> */}
                 <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 sm:mt-5 lg:mx-0 lg:max-w-none">
                     <div className="grid grid-cols-1 gap-x-8 gap-y-4 pb-12">
                         <div>
@@ -535,7 +514,7 @@ const Shop = ({ data }) => {
                                 "mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                             )}
                         >
-                            Buy plan
+                            Begin!
                         </button>
                     </div>
                 </div>
