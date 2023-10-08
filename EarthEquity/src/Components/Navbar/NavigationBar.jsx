@@ -26,11 +26,15 @@ export default function HeroSection() {
                     aria-label="Global"
                 >
                     <div className="flex lg:flex-1">
-                        <NavLink to="/" className="-m-1.5 p-1.5">
+                        <NavLink
+                            onClick={() => handleClick("Home")}
+                            to="/"
+                            className="-m-1.5 p-1.5"
+                        >
                             <span className="sr-only">Earth Equity</span>
                             <img
                                 className="h-16 w-auto"
-                                src="/src/assets/EarthEquityLogo.svg"
+                                src="/assets/EarthEquityLogo.svg"
                                 alt=""
                             />
                         </NavLink>
@@ -48,9 +52,12 @@ export default function HeroSection() {
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigation.map((item) => (
                             <NavLink
+                                onClick={() => handleClick(item.name)}
                                 key={item.name}
                                 to={item.to}
-                                className="text-xl font-semibold leading-6 text-gray-900"
+                                className={`text-xl font-semibold leading-6 text-gray-900 ${
+                                    currentPage == item.name ? "underline" : ""
+                                }`}
                             >
                                 {item.name}
                             </NavLink>
@@ -66,11 +73,15 @@ export default function HeroSection() {
                     <div className="fixed inset-0 z-50" />
                     <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
-                            <NavLink to="/" className="-m-1.5 p-1.5">
+                            <NavLink
+                                to="/"
+                                onClick={() => handleClick("Home")}
+                                className="-m-1.5 p-1.5"
+                            >
                                 <span className="sr-only">Earth Equity</span>
                                 <img
                                     className="h-8 w-auto"
-                                    src="/src/assets/EarthEquityLogo.svg"
+                                    src="/assets/EarthEquityLogo.svg"
                                     alt=""
                                 />
                             </NavLink>
@@ -91,9 +102,16 @@ export default function HeroSection() {
                                 <div className="space-y-2 py-6">
                                     {navigation.map((item) => (
                                         <NavLink
+                                            onClick={() =>
+                                                handleClick(item.name)
+                                            }
                                             key={item.name}
                                             to={item.to}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                                            className={`-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 ${
+                                                currentPage == item.name
+                                                    ? "underline"
+                                                    : ""
+                                            }`}
                                         >
                                             {item.name}
                                         </NavLink>
