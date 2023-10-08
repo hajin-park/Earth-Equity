@@ -75,12 +75,12 @@ export default function NavigationBar() {
                 <Popover.Group className="hidden lg:flex lg:gap-x-12">
                     <NavLink
                         to="/"
-                        className="text-sm font-semibold leading-6 text-gray-900"
+                        className="text-sm font-semibold leading-6 text-gray-900 hover:animate-pulse"
                     >
                         Home
                     </NavLink>
                     <Popover className="relative">
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 hover:animate-pulse">
                             Health
                             <ChevronDownIcon
                                 className="h-5 w-5 flex-none text-gray-400"
@@ -130,7 +130,7 @@ export default function NavigationBar() {
                     </Popover>
 
                     <Popover className="relative">
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 hover:animate-pulse">
                             Climate
                             <ChevronDownIcon
                                 className="h-5 w-5 flex-none text-gray-400"
@@ -180,7 +180,7 @@ export default function NavigationBar() {
                     </Popover>
 
                     <Popover className="relative">
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 hover:animate-pulse">
                             Agriculture
                             <ChevronDownIcon
                                 className="h-5 w-5 flex-none text-gray-400"
