@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Graph from "../../Components/Graph/Graph.jsx";
+import LineGraph from "../../Components/Graph/LineGraph.jsx";
 import Shop from "../../Components/Shop/Shop.jsx";
 import { database } from "../../firebase.js";
 import { ref, child, get } from "firebase/database";
@@ -40,24 +40,11 @@ const Soil = () => {
         <main className="pt-28 p-16 flex flex-col lg:grid grid-rows-2 grid-cols-3">
             <section className="col-span-2 row-start-1">
                 <h1 className="text-6xl font-bold">{graphTitle}</h1>
-                <div
-                    style={{
-                        padding: "20px",
-                        flex: 2,
-                        width: "800px",
-                        height: "400px",
-                    }}
-                >
-                    <Graph
-                        data={graphPoints.map((point) => {
-                            return { x: point[0], y: point[1] };
-                        })}
-                        width={800}
-                        height={400}
-                        xAxisTitle="Time"
-                        yAxisTitle="# Covid Deaths"
-                    />
-                </div>
+                <LineGraph
+                    data={graphPoints.map((point) => {
+                        return { x: point[0], y: point[1] };
+                    })}
+                />
             </section>
             <section className="col-span-2 row-start-2">
                 <h2>Description</h2>

@@ -27,11 +27,11 @@ with open(f"Data/data/{CSV_FILE}", "r") as file:
 
     # the same date is split into many different times
     # we want to average soil moisture for the same date
-    prev_date = "05/01/2016"
+    prev_date = "2016-05-01"
     aggregate_soil_moisture = 0
     total_counts_day = 0
     for line in reader:
-        formatted_date = f"{int(line[MONTH_INDEX]):02d}/{int(line[DAY_INDEX]):02d}/{int(line[YEAR_INDEX])}"
+        formatted_date = f"{int(line[YEAR_INDEX])}-{int(line[MONTH_INDEX]):02d}-{int(line[DAY_INDEX]):02d}"
         # covid deaths in rows of the same date are combined
         if formatted_date == prev_date:
             aggregate_soil_moisture += float(line[SOIL_MOISTURE]) if line[SOIL_MOISTURE] else 0

@@ -27,9 +27,9 @@ with open(f"Data/data/{CSV_FILE}", "r") as file:
         next(reader)
 
     for line in reader:
-        if line[DATE_INDEX] and line[AIR_TEMP_MEAN]:
-            formatted_date = f"{line[DATE_INDEX][-4:-2]}/{line[DATE_INDEX][-2:]}/{line[DATE_INDEX][:4]}"
-            filtered_data["data"].append([formatted_date, line[AIR_TEMP_MEAN]])
+        if line[DATE_INDEX] and float(line[AIR_TEMP_MEAN]) != -9999.0:
+            formatted_date = f"{line[DATE_INDEX][:4]}-{line[DATE_INDEX][-4:-2]}-{line[DATE_INDEX][-2:]}"
+            filtered_data["data"].append([formatted_date, float(line[AIR_TEMP_MEAN])])
 
 with open(f"Data/data/{JSON_FILE}", "w") as file:
     json_string = json.dumps(filtered_data, indent=None, separators=(",", ":"))
