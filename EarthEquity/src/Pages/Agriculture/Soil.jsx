@@ -3,6 +3,7 @@ import LineGraph from "../../Components/Graph/LineGraph.jsx";
 import Shop from "../../Components/Shop/Shop.jsx";
 import { database } from "../../firebase.js";
 import { ref, child, get } from "firebase/database";
+import AboutSection from "../../Components/AboutSection/AboutSection.jsx"
 
 const Soil = () => {
     const [graphPoints, setGraphPoints] = useState([]);
@@ -46,9 +47,7 @@ const Soil = () => {
                     })}
                 />
             </section>
-            <section className="col-span-2 row-start-2">
-                <h2>Description</h2>
-            </section>
+            <AboutSection dataset="https://nsidc.org/data/sv16i_tnet/versions/1" desc="These data consist of soil moisture and temperature measurements recorded by the temporary soil moisture network deployed to SMAPVEX16-Iowa for the summer season of 2016. The sites were spread out over an experiment domain of about 30km by 40 km located about 30 km north of Ames, Iowa, USA. The data file contains the soil moisture and temperature measurements for each station located at the site."/>
             <section className="col-start-3 row-span-2">
                 <Shop data="Soil Moisture" />
             </section>
