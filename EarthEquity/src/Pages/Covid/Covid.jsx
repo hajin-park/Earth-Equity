@@ -8,17 +8,31 @@ const Covid = () => {
     const height = 300;
 
     return (
-        <div className="Covid">
-            <div className="plot">
-                <a href="#" >
-                    Covid Infections
+        <div className="Covid"
+            style={{ display: "flex" }}
+        >
+            <div className="info"
+                style={{ display: "flex", flex: 2, flexDirection: "column" }}
+            >
+                <a href="#" style={{ fontSize: "large" }}>
+                        Covid Infections
                 </a>
-                <Graph data={data} width={width} height={height} />
+                <div className="plot"
+                    style={{ flex: 2, padding: "20px" }}
+                >
+                    <Graph data={data} width={width} height={height} />
+                </div>
+                <div className="desc"
+                    style={{ flex: 1 }}
+                >   
+                    <a href="#">
+                        Test
+                    </a>
+                </div>
             </div>
-            <div className="desc">
-
-            </div>
-            <div className="buy">
+            <div className="buy"
+                style={{ flex: 1 }}
+            >
                 <Shop data = "COVID"/>
             </div>
         </div>
