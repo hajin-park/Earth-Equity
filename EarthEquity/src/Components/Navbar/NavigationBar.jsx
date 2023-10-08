@@ -1,10 +1,7 @@
 import { Fragment, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Dialog, Popover, Transition } from "@headlessui/react";
-import {
-    Bars3Icon,
-    XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
     BeakerIcon,
     ChevronDownIcon,
@@ -52,7 +49,7 @@ export default function NavigationBar() {
                     <NavLink to="/" className="-m-1.5 p-1.5">
                         <span className="sr-only">Earth Equity</span>
                         <img
-                            className="h-8 w-auto"
+                            className="pl-8 h-12 w-auto"
                             src="/src/assets/EarthEquityLogo.svg"
                             alt="Logo"
                         />
@@ -71,7 +68,7 @@ export default function NavigationBar() {
                 <Popover.Group className="hidden lg:flex lg:gap-x-12">
                     <NavLink
                         to="/"
-                        className="text-sm font-semibold leading-6 text-gray-900 hover:animate-pulse"
+                        className="pr-4 text-sm font-semibold leading-6 text-gray-900 hover:animate-pulse"
                     >
                         Home
                     </NavLink>

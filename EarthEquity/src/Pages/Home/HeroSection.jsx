@@ -51,9 +51,9 @@ export default function HeroSection() {
                         />
                     </div>
                     <div className="overflow-hidden">
-                        <div className="mx-auto max-w-7xl px-6 pb-32 sm:pt-60 lg:px-8 lg:pt-10">
-                            <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-                                <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+                        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                            <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none">
+                                <div className="w-full h-fit max-w-xl lg:shrink-0 xl:max-w-2xl lg:pt-10">
                                     <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                                         Earth Equity
                                     </h1>
@@ -78,6 +78,14 @@ export default function HeroSection() {
                                         Introductory knowledge of investing as a
                                         subsequent side-effect!
                                     </p>
+                                    <div className="mx-auto max-w-7xl lg:pt-10">
+                                        <div className="flex items-center gap-x-6">
+                                            <h2 className="text-6xl font-black">
+                                                Learn How To Play!
+                                            </h2>
+                                            <ArrowDownIcon className="h-16 w-auto animate-bounce" />
+                                        </div>
+                                    </div>
                                 </div>
                                 <section className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                                     <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
@@ -129,14 +137,6 @@ export default function HeroSection() {
                                 </section>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div className="mx-auto max-w-7xl px-6 lg:px-8 lg:pt-10">
-                    <div className="flex items-center gap-x-6">
-                        <h2 className="text-6xl font-black">
-                            Learn How To Play!
-                        </h2>
-                        <ArrowDownIcon className="h-16 w-auto animate-bounce" />
                     </div>
                 </div>
             </main>
