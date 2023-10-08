@@ -6,12 +6,12 @@ CSV_FILE = "LC02_Acre_Daily_Met_1970-2001.csv"
 JSON_FILE = "filtered_LC02_Acre_Daily_Met_1970-2001.json"
 filtered_data = {
     "title": "Average Temperature in Rio Branco",
-    "start": "01/04/2020",
-    "end": "09/03/2023",
+    "start": "01/01/1970",
+    "end": "05/31/2001",
     "intervals": ["Daily", "Weekly", "Monthly", "Yearly"],
-    "descriptions": ["Covid deaths"],
+    "descriptions": ["Average tempature in Rio Branco"],
     "links": [""],
-    "data": {},
+    "data": [],
 }
 
 with open(f"data/{CSV_FILE}", "r") as file:
@@ -22,3 +22,4 @@ with open(f"data/{CSV_FILE}", "r") as file:
         next(reader)
 
     for line in reader:
+        pass
