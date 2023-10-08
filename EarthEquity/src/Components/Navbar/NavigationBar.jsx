@@ -2,18 +2,14 @@ import { Fragment, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Dialog, Popover, Transition } from "@headlessui/react";
 import {
-    ArrowPathIcon,
     Bars3Icon,
-    ChartPieIcon,
-    CursorArrowRaysIcon,
-    FingerPrintIcon,
-    SquaresPlusIcon,
     XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
+    BeakerIcon,
     ChevronDownIcon,
-    PhoneIcon,
-    PlayCircleIcon,
+    GlobeAmericasIcon,
+    SunIcon,
 } from "@heroicons/react/20/solid";
 
 const health = [
@@ -21,7 +17,7 @@ const health = [
         name: "COVID",
         description: "COVID Death Rates",
         to: "covid",
-        icon: ChartPieIcon,
+        icon: BeakerIcon,
     },
 ];
 
@@ -30,7 +26,7 @@ const climate = [
         name: "Temperature",
         description: "Mean Temperature in Rio Branco",
         to: "temperature",
-        icon: FingerPrintIcon,
+        icon: SunIcon,
     },
 ];
 
@@ -39,7 +35,7 @@ const agriculture = [
         name: "Soil",
         description: "Soil Moisture Levels in Iowa",
         to: "soil",
-        icon: SquaresPlusIcon,
+        icon: GlobeAmericasIcon,
     },
 ];
 
@@ -57,7 +53,7 @@ export default function NavigationBar() {
                         <span className="sr-only">Earth Equity</span>
                         <img
                             className="h-8 w-auto"
-                            src="/assets/EarthEquityLogo.svg"
+                            src="/src/assets/EarthEquityLogo.svg"
                             alt="Logo"
                         />
                     </NavLink>
@@ -75,12 +71,12 @@ export default function NavigationBar() {
                 <Popover.Group className="hidden lg:flex lg:gap-x-12">
                     <NavLink
                         to="/"
-                        className="text-sm font-semibold leading-6 text-gray-900"
+                        className="text-sm font-semibold leading-6 text-gray-900 hover:animate-pulse"
                     >
                         Home
                     </NavLink>
                     <Popover className="relative">
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 hover:animate-pulse">
                             Health
                             <ChevronDownIcon
                                 className="h-5 w-5 flex-none text-gray-400"
@@ -130,7 +126,7 @@ export default function NavigationBar() {
                     </Popover>
 
                     <Popover className="relative">
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 hover:animate-pulse">
                             Climate
                             <ChevronDownIcon
                                 className="h-5 w-5 flex-none text-gray-400"
@@ -180,7 +176,7 @@ export default function NavigationBar() {
                     </Popover>
 
                     <Popover className="relative">
-                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900">
+                        <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 hover:animate-pulse">
                             Agriculture
                             <ChevronDownIcon
                                 className="h-5 w-5 flex-none text-gray-400"

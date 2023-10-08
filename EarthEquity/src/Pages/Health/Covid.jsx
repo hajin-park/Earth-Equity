@@ -3,6 +3,7 @@ import LineGraph from "../../Components/Graph/LineGraph.jsx";
 import Shop from "../../Components/Shop/Shop.jsx";
 import { database } from "../../firebase.js";
 import { ref, child, get } from "firebase/database";
+import AboutSection from "../../Components/AboutSection/AboutSection.jsx";
 
 const Covid = () => {
     const [start, setStart] = useState(false);
@@ -55,17 +56,10 @@ const Covid = () => {
                     </div>
                 )}
             </section>
-            <section className="col-span-2 row-start-2 py-8">
-                <h2 className="underline text-xl font-bold">About</h2>
-                {graphDescriptions.map((description) => {
-                    <p>{description}</p>;
-                })}
-
-                <h2 className="underline text-xl font-bold">Resources</h2>
-                {graphLinks.map((link) => {
-                    <a href={link}>{link}</a>;
-                })}
-            </section>
+            <AboutSection
+                desc="Deaths counts for influenza, pneumonia, and COVID-19 reported to NCHS by week ending date, by state and HHS region, and age group."
+                dataset="https://data.cdc.gov/NCHS/Provisional-Death-Counts-for-Influenza-Pneumonia-a/ynw2-4viq"
+            />
             <section className="col-start-3 row-span-2">
                 <Shop
                     title={graphTitle}
