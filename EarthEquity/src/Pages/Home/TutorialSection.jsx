@@ -39,73 +39,90 @@ export default function TutorialSection() {
                             </div>
                         </div>
 
-                        {/* 2 */}
-                        <div
-                            key="Choose your start date."
-                            className="relative pl-9"
-                        >
-                            <dt className="inline font-semibold text-gray-900">
-                                <CursorArrowRaysIcon
-                                    className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
-                                    aria-hidden="true"
-                                />
-                                Choose your start date.
-                            </dt>{" "}
-                            <dd className="inline">
-                                It's time to set your start date. Navigate to
-                                the right side and set your time frame. Each
-                                market will have its own time constraints.
-                            </dd>
-                        </div>
+                        <div className="grid grid-cols-2 items-center justify-center">
+                            <div className="flex flex-col gap-y-4">
+                                {/* 2 */}
+                                <div
+                                    key="Choose your start date."
+                                    className="relative pl-9"
+                                >
+                                    <dt className="inline font-semibold text-gray-900">
+                                        <CursorArrowRaysIcon
+                                            className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
+                                            aria-hidden="true"
+                                        />
+                                        Choose your start date.
+                                    </dt>{" "}
+                                    <dd className="inline">
+                                        It's time to set your start date.
+                                        Navigate to the right side and set your
+                                        time frame. Each market will have its
+                                        own time constraints.
+                                    </dd>
+                                </div>
 
-                        {/* 3 */}
-                        <div
-                            key="Choose your end date."
-                            className="relative pl-9"
-                        >
-                            <dt className="inline font-semibold text-gray-900">
-                                <CalendarDaysIcon
-                                    className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
-                                    aria-hidden="true"
-                                />
-                                Choose your end date.
-                            </dt>{" "}
-                            <dd className="inline">
-                                You selected your start date, now it's time to
-                                set when you want to stop. This step is crucial
-                                to your graph. Make sure to choose a time frame
-                                that you think will have the best outcome for
-                                your situation. Choose wisely!
-                            </dd>
-                        </div>
+                                {/* 3 */}
+                                <div
+                                    key="Choose your end date."
+                                    className="relative pl-9"
+                                >
+                                    <dt className="inline font-semibold text-gray-900">
+                                        <CalendarDaysIcon
+                                            className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
+                                            aria-hidden="true"
+                                        />
+                                        Choose your end date.
+                                    </dt>{" "}
+                                    <dd className="inline">
+                                        You selected your start date, now it's
+                                        time to set when you want to stop. This
+                                        step is crucial to your graph. Make sure
+                                        to choose a time frame that you think
+                                        will have the best outcome for your
+                                        situation. Choose wisely!
+                                    </dd>
+                                </div>
 
-                        {/* 4 */}
-                        <div
-                            key="Make your purchase!"
-                            className="relative pl-9"
-                        >
-                            <dt className="inline font-semibold text-gray-900">
-                                <ShoppingCartIcon
-                                    className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
-                                    aria-hidden="true"
-                                />
-                                Make your purchase!
-                            </dt>{" "}
-                            <dd className="inline">
-                                It's time to process your equity. You have two
-                                options: <b>sell</b> or <b>buy</b>. These two
-                                options are crucial to your outcome. By choosing
-                                the sell option, you predict that the graph will
-                                depreciate, meaning that as time goes on, the
-                                overall trend of your graph will be downward. In
-                                this case, you want your end date to have a
-                                value less than your start date value. On the
-                                other hand, choosing the buy option predicts
-                                that your chosen time frame will end in an
-                                overall increase from your start date. Choose
-                                the option you think is best in your chosen
-                                market.
-                            </dd>
+                                {/* 4 */}
+                                <div
+                                    key="Make your purchase!"
+                                    className="relative pl-9"
+                                >
+                                    <dt className="inline font-semibold text-gray-900">
+                                        <ShoppingCartIcon
+                                            className="absolute left-1 top-1 h-5 w-5 text-indigo-600"
+                                            aria-hidden="true"
+                                        />
+                                        Make your purchase!
+                                    </dt>{" "}
+                                    <dd className="inline">
+                                        It's time to process your equity. You
+                                        have two options: <b>sell</b> or{" "}
+                                        <b>buy</b>. These two options are
+                                        crucial to your outcome. By choosing the
+                                        sell option, you predict that the graph
+                                        will depreciate, meaning that as time
+                                        goes on, the overall trend of your graph
+                                        will be downward. In this case, you want
+                                        your end date to have a value less than
+                                        your start date value. On the other
+                                        hand, choosing the buy option predicts
+                                        that your chosen time frame will end in
+                                        an overall increase from your start
+                                        date. Choose the option you think is
+                                        best in your chosen market.
+                                    </dd>
+                                </div>
+                            </div>
+                            <img
+                                className="place-self-center"
+                                src="\src\assets\BuySell.gif"
+                                alt="buy sell gif"
+                                style={{
+                                    maxHeight: "600px",
+                                    maxWidth: "300px",
+                                }}
+                            ></img>
                         </div>
 
                         {/* 5 */}
