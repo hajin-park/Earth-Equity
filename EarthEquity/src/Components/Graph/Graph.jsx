@@ -1,73 +1,77 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 
-const Graph = ({ data, width, height }) => {
-  const svgRef = useRef();
+const Graph = ({ data, width, height, xAxisTitle, yAxisTitle }) => {
+    const ref = useRef();
 
-  useEffect(() => {
-    const svg = d3.select(svgRef.current)
-      .attr('width', width)
-      .attr('height', height);
+    useEffect(() => {
+        const margin = {top: 20, right: 30, bottom: 50, left: 60};
+        const innerWidth = width - margin.left - margin.right;
+        const innerHeight = height - margin.top - margin.bottom;
 
-    const xScale = d3.scaleLinear()
-      .domain([0, data.length - 1])
-      .range([0, width]);
+        const svg = d3.select(ref.current)
+            .attr('width', width)
+            .attr('height', height);
 
-    const yScale = d3.scaleLinear()
-      .domain([0, d3.max(data, d => d)])
-      .range([height, 0]);
+        svg.selectAll("*").remove();  // Clear previous data
 
-    const line = d3.line()
-      .x((d, i) => xScale(i))
-      .y(d => yScale(d));
+        const xScale = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.x)])
+            .range([0, innerWidth]);
 
-    svg.selectAll('*').remove(); // Clear previous elements
+        const yScale = d3.scaleLinear()
+            .domain([0, d3.max(data, d => d.y)])
+            .range([innerHeight, 0]);
 
-    const path = svg.append('path')
-      .datum(data)
-      .attr('fill', 'none')
-      .attr('stroke', 'blue')
-      .attr('d', line);
+        const g = svg.append('g')
+            .attr('transform', `translate(${margin.left},${margin.top})`);
 
-    // Get the total length of the path
-    const totalLength = path.node().getTotalLength();
+        const line = d3.line()
+            .x(d => xScale(d.x))
+            .y(d => yScale(d.y));
 
-    // Animate the path
-    path.attr('stroke-dasharray', totalLength + ' ' + totalLength)
-      .attr('stroke-dashoffset', totalLength)
-      .transition()
-      .duration(5000)
-      .ease(d3.easeLinear)
-      .attr('stroke-dashoffset', 0);
+        const path = g.append('path')
+            .datum(data)
+            .attr('fill', 'none')
+            .attr('stroke', 'steelblue')
+            .attr('stroke-width', 1.5)
+            .attr('d', line);
 
-    // Draw X axis
-    svg.append('g')
-      .attr('transform', `translate(0, ${height})`)
-      .call(d3.axisBottom(xScale).ticks(data.length).tickFormat(d3.format('d')));
+        const totalLength = path.node().getTotalLength();
 
-    // Draw Y axis
-    svg.append('g')
-      .call(d3.axisLeft(yScale));
+        path
+            .attr('stroke-dasharray', totalLength + " " + totalLength)
+            .attr('stroke-dashoffset', totalLength)
+            .transition()
+            .duration(5000)
+            .attr('stroke-dashoffset', 0);
 
-    // X axis label
-    svg.append('text')
-      .attr('x', width / 2)
-      .attr('y', height + 40)
-      .style('text-anchor', 'middle')
-      .text('X Axis Label');
+        g.append('g')
+            .attr('transform', `translate(0,${innerHeight})`)
+            .call(d3.axisBottom(xScale))
+            .append('text')
+            .attr('class', 'axis-title')
+            .attr('x', innerWidth / 2)
+            .attr('y', 40)
+            .attr('fill', 'black')
+            .style('text-anchor', 'middle')
+            .text(xAxisTitle);
 
-    // Y axis label
-    svg.append('text')
-      .attr('transform', 'rotate(-90)')
-      .attr('x', -height / 2)
-      .attr('y', -40)
-      .style('text-anchor', 'middle')
-      .text('Y Axis Label');
-  }, [data, width, height]);
+        g.append('g')
+            .call(d3.axisLeft(yScale))
+            .append('text')
+            .attr('class', 'axis-title')
+            .attr('transform', 'rotate(-90)')
+            .attr('y', -50)
+            .attr('x', -innerHeight / 2)
+            .attr('fill', 'black')
+            .style('text-anchor', 'middle')
+            .text(yAxisTitle);
+    }, [data, height, width, xAxisTitle, yAxisTitle]);
 
-  return (
-    <svg ref={svgRef}></svg>
-  );
+    return (
+        <svg ref={ref}></svg>
+    );
 };
 
 export default Graph;
