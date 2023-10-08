@@ -128,13 +128,15 @@ export default function HeroSection() {
                                     </div>
                                 </section>
                             </div>
-                            <div className="flex items-center gap-x-6">
-                                <h2 className="text-6xl font-black">
-                                    Learn How To Play!
-                                </h2>
-                                <ArrowDownIcon className="h-16 w-auto animate-bounce" />
-                            </div>
                         </div>
+                    </div>
+                </div>
+                <div className="mx-auto max-w-7xl px-6 lg:px-8 lg:pt-10">
+                    <div className="flex items-center gap-x-6">
+                        <h2 className="text-6xl font-black">
+                            Learn How To Play!
+                        </h2>
+                        <ArrowDownIcon className="h-16 w-auto animate-bounce" />
                     </div>
                 </div>
             </main>
