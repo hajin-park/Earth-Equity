@@ -37,9 +37,9 @@ const Covid = () => {
     }, []);
 
     return (
-        <main className="pt-28 p-16 flex flex-col lg:grid grid-rows-2 grid-cols-3">
+        <main className="lg:pt-16 p-12 flex flex-col lg:grid grid-rows-2 grid-cols-3">
             <section className="col-span-2 row-start-1">
-                <h1 className="text-6xl font-bold pb-16">{graphTitle}</h1>
+                <h1 className="text-6xl font-bold">{graphTitle}</h1>
                 {start ? (
                     <LineGraph
                         data={graphPoints.map((point) => {
@@ -48,14 +48,14 @@ const Covid = () => {
                         start={start}
                     />
                 ) : (
-                    <div className="flex w-full pt-20 items-center justify-center">
+                    <div className="flex w-full lg:py-32 items-center">
                         <p className="text-6xl font-bold animate-pulse text-blue-950">
                             Waiting For Inputs
                         </p>
                     </div>
                 )}
             </section>
-            <section className="col-span-2 row-start-2">
+            <section className="col-span-2 row-start-2 py-8">
                 <h2 className="underline text-xl font-bold">About</h2>
                 {graphDescriptions.map((description) => {
                     <p>{description}</p>;
