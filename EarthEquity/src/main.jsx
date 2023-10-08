@@ -9,6 +9,7 @@ import { Layout} from "./utils/layouts.jsx";
 import Covid from "./Pages/Health/Covid";
 import Heat from "./Pages/Climate/Heat.jsx";
 import Home from "./Pages/Home/Home";
+import Milk from "./Pages/Agriculture/Milk.jsx";
 import './index.css'
 
 const router = createBrowserRouter([
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
         {
           path: "/heat",
           element: <Heat />,
-        }
+        },
+        {
+          path: "/milk",
+          element: <Milk />,
+        },
     ],
   }
 ]);
