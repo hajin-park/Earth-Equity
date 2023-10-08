@@ -23,12 +23,22 @@ const Graph = ({ data, width, height }) => {
 
     svg.selectAll('*').remove(); // Clear previous elements
 
-    // Draw the line
-    svg.append('path')
+    const path = svg.append('path')
       .datum(data)
       .attr('fill', 'none')
       .attr('stroke', 'blue')
       .attr('d', line);
+
+    // Get the total length of the path
+    const totalLength = path.node().getTotalLength();
+
+    // Animate the path
+    path.attr('stroke-dasharray', totalLength + ' ' + totalLength)
+      .attr('stroke-dashoffset', totalLength)
+      .transition()
+      .duration(5000)
+      .ease(d3.easeLinear)
+      .attr('stroke-dashoffset', 0);
 
     // Draw X axis
     svg.append('g')

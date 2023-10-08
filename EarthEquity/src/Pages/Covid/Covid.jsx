@@ -3,7 +3,7 @@ import Graph from "../../Components/Graph/Graph.jsx";
 import Shop from "../../Components/Shop/Shop.jsx";
 
 const Covid = () => {
-    const data = [10, 20, 15, 25, 30, 35];
+    const data = [10, 20, 15, 25, 30, 35, 23, 53, 52, 54, 123, 41, 53, 52, 12, 12, 14, 16, 20];
     const width = 400;
     const height = 300;
 
@@ -14,8 +14,8 @@ const Covid = () => {
             <div className="info"
                 style={{ display: "flex", flex: 2, flexDirection: "column" }}
             >
-                <a href="#" style={{ fontSize: "large" }}>
-                        Covid Infections
+                <a href="#" style={{ fontSize: "large", padding: "20px" }}>
+                    Covid Infections
                 </a>
                 <div className="plot"
                     style={{ flex: 2, padding: "20px" }}
