@@ -6,7 +6,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Layout} from "./utils/layouts.jsx";
-import Covid from "./Pages/Covid/Covid";
+import Covid from "./Pages/Health/Covid";
+import Heat from "./Pages/Climate/Heat.jsx";
 import Home from "./Pages/Home/Home";
 import './index.css'
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         {
             path: "/covid",
             element: <Covid />,
+        },
+        {
+          path: "/heat",
+          element: <Heat />,
         }
     ],
   }
