@@ -17,6 +17,7 @@ const monthNames = [
 ];
 
 const LineChart = ({ data, chosenLength }) => {
+    
     const ref = useRef();
 
     useEffect(() => {
