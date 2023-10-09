@@ -58,8 +58,8 @@ const Soil = () => {
                 )}
             </section>
             <AboutSection
-                desc="Deaths counts for influenza, pneumonia, and COVID-19 reported to NCHS by week ending date, by state and HHS region, and age group."
-                dataset="https://data.cdc.gov/NCHS/Provisional-Death-Counts-for-Influenza-Pneumonia-a/ynw2-4viq"
+                desc="These data consist of soil moisture and temperature measurements recorded by the temporary soil moisture network deployed to SMAPVEX16-Iowa for the summer season of 2016. The sites were spread out over an experiment domain of about 30km by 40 km located about 30 km north of Ames, Iowa, USA. The data file contains the soil moisture and temperature measurements for each station located at the site."
+                dataset="https://nsidc.org/data/sv16i_tnet/versions/1"
             />
             <section className="col-start-3 row-span-1">
                 <Shop
