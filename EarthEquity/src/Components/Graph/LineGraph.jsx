@@ -16,7 +16,7 @@ const monthNames = [
     "December",
 ];
 
-const LineChart = ({ data, chosenLength }) => {
+const LineChart = ({ data, chosenLength, setStartValue, setEndValue }) => {
     const ref = useRef();
 
     useEffect(() => {
@@ -45,6 +45,9 @@ const LineChart = ({ data, chosenLength }) => {
             const itemDate = new Date(item.date);
             return itemDate >= startDate && itemDate <= endDate;
         });
+
+        setStartValue(+filteredData[0]["value"]);
+        setEndValue(+filteredData.slice(-1)["value"]);
 
         const width = 1000;
         const height = 500;

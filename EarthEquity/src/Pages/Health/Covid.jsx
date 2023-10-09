@@ -16,8 +16,10 @@ const Covid = () => {
     const [chosenLength, setChosenLength] = useState([]);
     const [investment, setInvestment] = useState(1000);
     const [cash, setCash] = useState(1000);
-    const [startValue, setStartValue] = useState(0);
-    const [endValue, setEndValue] = useState(0);
+    const [startValue, setStartValue] = useState(1);
+    const [endValue, setEndValue] = useState(1);
+    const [showStats, setShowStats] = useState(false);
+    const [actionAmount, setActionAmount] = useState(0);
 
     useEffect(() => {
         const dbRef = ref(database);
@@ -45,13 +47,20 @@ const Covid = () => {
     return (
         <main className="lg:pt-16 p-12 flex flex-auto flex-col lg:grid grid-rows-2 grid-cols-3">
             <section className="col-span-2 row-start-1">
-                <h1 className="text-6xl font-bold">{graphTitle}</h1>
+                <div>
+                    <h1 className="text-6xl font-bold">{graphTitle}</h1>
+                    <p className="text-3xl font-md italic pb-4">
+                        {investment * (endValue / startValue)} EE
+                    </p>
+                </div>
                 {start ? (
                     <LineGraph
                         data={graphPoints.map((point) => {
                             return { date: point[0], value: point[1] };
                         })}
                         chosenLength={chosenLength}
+                        setStartValue={setStartValue}
+                        setEndValue={setEndValue}
                     />
                 ) : (
                     <div className="flex w-full lg:py-32 items-center">
@@ -72,6 +81,10 @@ const Covid = () => {
                     constraint={timeConstraint}
                     setStart={setStart}
                     setChosenLength={setChosenLength}
+                    setActionAmount={setActionAmount}
+                    cash={cash}
+                    setInvestment={setInvestment}
+                    setCash={setCash}
                 />
             </section>
         </main>

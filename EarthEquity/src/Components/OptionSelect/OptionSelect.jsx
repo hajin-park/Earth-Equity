@@ -15,11 +15,13 @@ export default function OptionSelect({
     inputData,
     intervals,
     setChosenLength,
+    setActionAmount,
+    setInvestment,
+    setCash,
 }) {
     const [action, setAction] = useState("");
 
     const handleChange = (e) => {
-        console.log(inputData);
         for (const [key, value] of Object.entries(inputData)) {
             if (!value) {
                 if (key == "startDay" || key == "endDay") {
@@ -37,18 +39,6 @@ export default function OptionSelect({
                 }
             }
         }
-        console.log([
-            {
-                startYear: inputData.startYear,
-                startMonth: inputData.startMonth,
-                startDay: inputData.startDay,
-            },
-            {
-                endYear: inputData.endYear,
-                endMonth: inputData.endMonth,
-                endDay: inputData.endDay,
-            },
-        ]);
         setChosenLength([
             {
                 startYear: inputData.startYear,
@@ -61,6 +51,18 @@ export default function OptionSelect({
                 endDay: inputData.endDay,
             },
         ]);
+        console.log(action);
+        setActionAmount(inputData.amount);
+        setInvestment((e) =>
+            action.name == "Buy"
+                ? (e += +inputData.amount)
+                : (e -= +inputData.amount)
+        );
+        setCash((e) =>
+            action.name == "Buy"
+                ? (e -= +inputData.amount)
+                : (e += +inputData.amount)
+        );
         setStart(e);
     };
 

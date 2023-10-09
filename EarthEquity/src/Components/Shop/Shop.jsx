@@ -33,7 +33,17 @@ const MONTHS = [
     "December",
 ];
 
-const Shop = ({ title, intervals, constraint, setStart, setChosenLength }) => {
+const Shop = ({
+    title,
+    intervals,
+    constraint,
+    setStart,
+    setChosenLength,
+    setActionAmount,
+    cash,
+    setInvestment,
+    setCash,
+}) => {
     const [startYear, setStartYear] = useState(null);
     const [endYear, setEndYear] = useState(null);
     const [startMonth, setStartMonth] = useState(null);
@@ -47,6 +57,8 @@ const Shop = ({ title, intervals, constraint, setStart, setChosenLength }) => {
     const [availableEndMonths, setAvailableEndMonths] = useState([]);
     const [availableEndDays, setAvailableEndDays] = useState([]);
     const [amount, setAmount] = useState(0);
+    const [displayMinimumDate, setDisplayMinimumDate] = useState("");
+    const [displayMaximumDate, setDisplayMaximumDate] = useState("");
 
     //Set default contraints on available years
     useEffect(() => {
@@ -73,6 +85,8 @@ const Shop = ({ title, intervals, constraint, setStart, setChosenLength }) => {
             days.push(day);
         }
 
+        setDisplayMinimumDate(startDate.toString());
+        setDisplayMaximumDate(endDate.toString());
         setAvailableStartYears(() => years);
         setAvailableEndYears(() => years);
         setAvailableStartMonths(() => [...MONTHS]);
@@ -109,7 +123,9 @@ const Shop = ({ title, intervals, constraint, setStart, setChosenLength }) => {
                     </p>
                 </div>
                 <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 sm:mt-5 lg:mx-0 lg:max-w-none">
-                    <h3 className="pb-2 text-center ">Select Start Date</h3>
+                    <h3 className="pb-2 text-center ">
+                        Select Start Date after {displayMinimumDate}
+                    </h3>
                     <section className="flex flex-row justify-center gap-x-4 pt-2 pb-8">
                         {intervals.includes("Yearly") && (
                             <DropDown
@@ -134,7 +150,9 @@ const Shop = ({ title, intervals, constraint, setStart, setChosenLength }) => {
                         )}
                     </section>
 
-                    <h3 className="pb-2 text-center ">Select End Date</h3>
+                    <h3 className="pb-2 text-center ">
+                        Select End Date before {displayMaximumDate}
+                    </h3>
                     <section className="flex flex-row justify-center gap-x-4 pt-2 pb-8">
                         {intervals.includes("Yearly") && (
                             <DropDown
@@ -159,7 +177,7 @@ const Shop = ({ title, intervals, constraint, setStart, setChosenLength }) => {
                         )}
                     </section>
 
-                    <InputBox setAmount={setAmount} />
+                    <InputBox setAmount={setAmount} cash={cash} />
 
                     <OptionSelect
                         setStart={setStart}
@@ -174,6 +192,9 @@ const Shop = ({ title, intervals, constraint, setStart, setChosenLength }) => {
                         }}
                         intervals={intervals}
                         setChosenLength={setChosenLength}
+                        setActionAmount={setActionAmount}
+                        setInvestment={setInvestment}
+                        setCash={setCash}
                     />
                 </div>
             </div>
