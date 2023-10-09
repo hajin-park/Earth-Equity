@@ -50,7 +50,7 @@ export default function NavigationBar() {
                         <span className="sr-only">Earth Equity</span>
                         <img
                             className="pl-8 h-12 w-auto"
-                            src="/src/assets/Earth_Equity_Logo.svg"
+                            src="/assets/Earth_Equity_Logo.svg"
                             alt="Logo"
                         />
                     </NavLink>
