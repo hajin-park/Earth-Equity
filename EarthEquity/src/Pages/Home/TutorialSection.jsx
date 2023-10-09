@@ -16,16 +16,27 @@ export default function TutorialSection() {
                 <div className="mx-auto max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
                     <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-1 lg:gap-x-8 lg:gap-y-16">
                         {/* 1 */}
-                        <div key="Find your market." className="relative grid grid-cols-2 grid-rows-1 ">
-
-                          <div className="h-fit self-center">
-                            <dt className="inline flex font-semibold text-gray-900 items-center gap-1">
-                                <MagnifyingGlassCircleIcon className="h-5 w-5 text-indigo-600" aria-hidden="true" />
-                                <p>Find your market.</p>
-                            </dt>{' '}
-                            <dd className="inline">Navigate to the navigation bar and select a market that you want to explore further.</dd>
-                          </div>
-                          <img src="\src\assets\SelectMarket.svg" alt="select market"></img>
+                        <div
+                            key="Find your market."
+                            className="relative grid grid-cols-2 grid-rows-1 "
+                        >
+                            <div className="h-fit self-center">
+                                <dt className="inline flex font-semibold text-gray-900 items-center gap-1">
+                                    <MagnifyingGlassCircleIcon
+                                        className="h-5 w-5 text-indigo-600"
+                                        aria-hidden="true"
+                                    />
+                                    <p>Find your market.</p>
+                                </dt>{" "}
+                                <dd className="inline">
+                                    Navigate to the navigation bar and select a
+                                    market that you want to explore further.
+                                </dd>
+                            </div>
+                            <img
+                                src="\assets\SelectMarket.svg"
+                                alt="select market"
+                            ></img>
                         </div>
 
                         <div className="grid grid-cols-2 items-center justify-center">
@@ -105,7 +116,7 @@ export default function TutorialSection() {
                             </div>
                             <img
                                 className="place-self-center"
-                                src="\src\assets\BuySell.gif"
+                                src="\assets\BuySell.gif"
                                 alt="buy sell gif"
                                 style={{
                                     maxHeight: "600px",
