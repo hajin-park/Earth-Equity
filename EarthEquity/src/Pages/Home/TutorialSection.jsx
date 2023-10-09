@@ -17,7 +17,7 @@ export default function TutorialSection() {
                     <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-1 lg:gap-x-8 lg:gap-y-16">
                         {/* 1 */}
                         <div key="Find your market." className="relative grid grid-cols-2 grid-rows-1 ">
-                          <img src="\src\assets\SelectMarket.svg" alt="select market"></img>
+
                           <div className="h-fit self-center">
                             <dt className="inline flex font-semibold text-gray-900 items-center gap-1">
                                 <MagnifyingGlassCircleIcon className="h-5 w-5 text-indigo-600" aria-hidden="true" />
@@ -25,6 +25,7 @@ export default function TutorialSection() {
                             </dt>{' '}
                             <dd className="inline">Navigate to the navigation bar and select a market that you want to explore further.</dd>
                           </div>
+                          <img src="\src\assets\SelectMarket.svg" alt="select market"></img>
                         </div>
 
                         <div className="grid grid-cols-2 items-center justify-center">
